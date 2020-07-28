@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from 'uuid';
 const withTodoBoard = (WrappedComponent) => {
   return class extends React.Component {
     state = {
-      todos: [],
+      todos: JSON.parse(localStorage.getItem('todos')) || [],
       inputText: '',
     };
 
@@ -21,9 +21,12 @@ const withTodoBoard = (WrappedComponent) => {
         completed: false,
         id: uuidv4(),
       };
-      this.setState({
-        todos: [...todos, newTodo],
-      });
+      this.setState(
+        {
+          todos: [...todos, newTodo],
+        },
+        () => localStorage.setItem('todos', JSON.stringify(this.state.todos)),
+      );
     };
 
     render() {
