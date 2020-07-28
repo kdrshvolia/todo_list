@@ -48,6 +48,16 @@ const withTodoBoard = (WrappedComponent) => {
       });
     };
 
+    deleteTodo = (id) => {
+      const { todos } = this.state;
+      this.setState(
+        {
+          todos: todos.filter((todo) => todo.id !== id),
+        },
+        () => localStorage.setItem('todos', JSON.stringify(this.state.todos)),
+      );
+    };
+
     render() {
       return (
         <WrappedComponent
@@ -57,6 +67,7 @@ const withTodoBoard = (WrappedComponent) => {
           toggleTodo={this.toggleTodo}
           searchTodos={this.searchTodos}
           searchQuery={this.state.searchQuery}
+          deleteTodo={this.deleteTodo}
         />
       );
     }
