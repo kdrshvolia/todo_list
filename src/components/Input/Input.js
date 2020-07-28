@@ -2,9 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Input = ({ inputText, onChange, placeholder }) => {
-  const handleChange = () => {
-    onChange();
-  };
+  const handleChange = ({ target }) => onChange(target.value);
+
   return <input type="text" value={inputText} onChange={handleChange} placeholder={placeholder} />;
 };
 
