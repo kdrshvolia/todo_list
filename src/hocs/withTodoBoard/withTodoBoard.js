@@ -7,8 +7,14 @@ const withTodoBoard = (WrappedComponent) => {
       inputText: '',
     };
 
+    setInputText = (text) => {
+      this.setState({
+        inputText: text,
+      });
+    };
+
     render() {
-      return <WrappedComponent />;
+      return <WrappedComponent setInputText={this.setInputText} />;
     }
   };
 };
