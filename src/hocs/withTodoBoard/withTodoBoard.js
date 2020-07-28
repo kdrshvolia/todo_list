@@ -6,6 +6,7 @@ const withTodoBoard = (WrappedComponent) => {
     state = {
       todos: JSON.parse(localStorage.getItem('todos')) || [],
       inputText: '',
+      searchQuery: '',
     };
 
     setInputText = (text) => {
@@ -41,6 +42,12 @@ const withTodoBoard = (WrappedComponent) => {
       );
     };
 
+    searchTodos = (query) => {
+      this.setState({
+        searchQuery: query,
+      });
+    };
+
     render() {
       return (
         <WrappedComponent
@@ -48,6 +55,8 @@ const withTodoBoard = (WrappedComponent) => {
           addTodo={this.addTodo}
           todos={this.state.todos}
           toggleTodo={this.toggleTodo}
+          searchTodos={this.searchTodos}
+          searchQuery={this.state.searchQuery}
         />
       );
     }
