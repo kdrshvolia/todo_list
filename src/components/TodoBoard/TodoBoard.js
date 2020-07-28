@@ -1,16 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Input from '../Input/Input'
-import DateInput from '../DateInput/DateInput'
+import Input from '../Input/Input';
+import DateInput from '../DateInput/DateInput';
+import TodoList from '../TodoList/TodoList';
+import Button from '../Button/Button';
 
-const TodoBoard = () => {
+const TodoBoard = ({ setInputText }) => {
   return (
     <div>
-      <Input placeholder={} onChange={} inputText={} />
-      <DateInput onChange={} value={} />
+      <Input onChange={setInputText} />
+      <DateInput />
+      <Button>Add</Button>
       <TodoList />
     </div>
-  )
+  );
 };
 
 export default TodoBoard;
