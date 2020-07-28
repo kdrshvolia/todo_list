@@ -29,8 +29,27 @@ const withTodoBoard = (WrappedComponent) => {
       );
     };
 
+    toggleTodo = (id) => {
+      const { todos } = this.state;
+      this.setState(
+        {
+          todos: todos.map((todo) =>
+            todo.id === id ? { ...todo, completed: !todo.completed } : todo,
+          ),
+        },
+        () => localStorage.setItem('todos', JSON.stringify(this.state.todos)),
+      );
+    };
+
     render() {
-      return <WrappedComponent setInputText={this.setInputText} addTodo={this.addTodo} />;
+      return (
+        <WrappedComponent
+          setInputText={this.setInputText}
+          addTodo={this.addTodo}
+          todos={this.state.todos}
+          toggleTodo={this.toggleTodo}
+        />
+      );
     }
   };
 };
