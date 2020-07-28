@@ -4,6 +4,7 @@ const withTodoBoard = (WrappedComponent) => {
   return class extends React.Component {
     state = {
       todos: [],
+      inputText: '',
     };
 
     render() {
