@@ -8,6 +8,7 @@ const AddingPanel = styled.div`
   background: #fff;
   padding: 20px;
   flex-basis: 100%;
+  align-items: center;
 `;
 
 const ModalWrapper = styled.div`
