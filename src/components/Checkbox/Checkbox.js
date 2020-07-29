@@ -16,4 +16,9 @@ const Checkbox = ({ completed, onChange }) => {
   );
 };
 
+Checkbox.propTypes = {
+  completed: PropTypes.bool.isRequired,
+  onChange: PropTypes.func.isRequired,
+};
+
 export default Checkbox;

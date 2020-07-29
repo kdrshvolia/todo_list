@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Input from '../Input/Input';
 import DateInput from '../DateInput/DateInput';
 import Select from '../Select/Select';
@@ -18,6 +19,16 @@ const FiltersPanel = ({ searchTodos, setFilterDate, sortOptions, sortType, setSo
       />
     </FiltersWrapper>
   );
+};
+
+FiltersPanel.propTypes = {
+  setSortType: PropTypes.func.isRequired,
+  setFilterDate: PropTypes.func.isRequired,
+  sortType: PropTypes.string.isRequired,
+  sortOptions: PropTypes.arrayOf(
+    PropTypes.shape({ type: PropTypes.string.isRequired, value: PropTypes.string.isRequired }),
+  ).isRequired,
+  searchTodos: PropTypes.func.isRequired,
 };
 
 export default FiltersPanel;

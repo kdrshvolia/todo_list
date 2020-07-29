@@ -16,6 +16,7 @@ const DateInput = ({ value, onChange, labelText }) => {
 DateInput.propTypes = {
   value: PropTypes.instanceOf(Date).isRequired,
   onChange: PropTypes.func.isRequired,
+  labelText: PropTypes.string,
 };
 
 export default DateInput;
