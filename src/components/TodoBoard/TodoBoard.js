@@ -5,7 +5,7 @@ import DateInput from '../DateInput/DateInput';
 import TodoList from '../TodoList/TodoList';
 import Button from '../Button/Button';
 import Select from '../Select/Select';
-import { AddingButton, OpenModalButton, Wrapper } from './StyledComponents';
+import { AddingButton, OpenModalButton } from './StyledComponents';
 import AddingTodoPanel from '../AddingTodoPanel/AddingTodoPanel';
 import FiltersPanel from '../FiltersPanel/FiltersPanel';
 
@@ -24,9 +24,10 @@ const TodoBoard = ({
   filters,
   setModalOpen,
   isModalOpened,
+  inputText,
 }) => {
   return (
-    <Wrapper>
+    <div>
       <FiltersPanel
         searchTodos={searchTodos}
         setFilterDate={setFilterDate}
@@ -42,6 +43,7 @@ const TodoBoard = ({
           setInputText={setInputText}
           isModalOpened={isModalOpened}
           setModalOpen={setModalOpen}
+          inputText={inputText}
         />
       ) : null}
       <TodoList
@@ -51,7 +53,7 @@ const TodoBoard = ({
         sortType={sortType}
         filters={filters}
       />
-    </Wrapper>
+    </div>
   );
 };
 
