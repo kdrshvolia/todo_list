@@ -16,6 +16,7 @@ const withTodoBoard = (WrappedComponent) => {
       sortOptions,
       sortType: sortOptions[0].type,
       date: new Date(),
+      filters: { text: '', date: '' },
     };
 
     setInputText = (text) => {
@@ -59,8 +60,10 @@ const withTodoBoard = (WrappedComponent) => {
     };
 
     searchTodos = (query) => {
+      const { filters } = this.state;
       this.setState({
         searchQuery: query,
+        filters: { ...filters, text: query },
       });
     };
 
@@ -80,6 +83,14 @@ const withTodoBoard = (WrappedComponent) => {
       });
     };
 
+    setFilterDate = (date) => {
+      const { filters } = this.state;
+      this.setState({
+        filterDate: date,
+        filters: { ...filters, date },
+      });
+    };
+
     render() {
       return (
         <WrappedComponent
@@ -94,6 +105,8 @@ const withTodoBoard = (WrappedComponent) => {
           sortType={this.state.sortType}
           setSortType={this.setSortType}
           setDate={this.setDate}
+          setFilterDate={this.setFilterDate}
+          filters={this.state.filters}
         />
       );
     }

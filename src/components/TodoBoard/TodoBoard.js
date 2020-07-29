@@ -18,10 +18,13 @@ const TodoBoard = ({
   sortType,
   setSortType,
   setDate,
+  setFilterDate,
+  filters,
 }) => {
   return (
     <div>
       <Input onChange={searchTodos} placeholder="Search for todos..." />
+      <DateInput onChange={setFilterDate} />
       <Select optionsList={sortOptions} selectedOption={sortType} onChange={setSortType} />
       <Input onChange={setInputText} />
       <DateInput onChange={setDate} />
@@ -32,6 +35,7 @@ const TodoBoard = ({
         searchQuery={searchQuery}
         deleteTodo={deleteTodo}
         sortType={sortType}
+        filters={filters}
       />
     </div>
   );
