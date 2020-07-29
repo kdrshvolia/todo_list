@@ -6,6 +6,7 @@ import TodoList from '../TodoList/TodoList';
 import Button from '../Button/Button';
 import Select from '../Select/Select';
 import { AddingButton, Wrapper } from './StyledComponents';
+import AddingTodoPanel from '../AddingTodoPanel/AddingTodoPanel';
 
 const TodoBoard = ({
   setInputText,
@@ -26,9 +27,7 @@ const TodoBoard = ({
       <Input onChange={searchTodos} placeholder="Search for todos..." />
       <DateInput onChange={setFilterDate} />
       <Select optionsList={sortOptions} selectedOption={sortType} onChange={setSortType} />
-      <Input onChange={setInputText} />
-      <DateInput onChange={setDate} />
-      <AddingButton onClick={addTodo}>Add</AddingButton>
+      <AddingTodoPanel addTodo={addTodo} setDate={setDate} setInputText={setInputText} />
       <TodoList
         todos={todos}
         toggleTodo={toggleTodo}
