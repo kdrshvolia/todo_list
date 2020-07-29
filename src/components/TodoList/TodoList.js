@@ -36,16 +36,20 @@ const TodoList = ({ todos, toggleTodo, deleteTodo, sortType, filters }) => {
 
   return (
     <CustomList>
-      {sortedTodos.map((item) => (
-        <TodoItem
-          text={item.text}
-          completed={item.completed}
-          id={item.id}
-          date={item.date}
-          onClick={toggleTodo}
-          deleteTodo={deleteTodo}
-        />
-      ))}
+      {sortedTodos.length === 0 ? (
+        <div>No added tasks yet :(</div>
+      ) : (
+        sortedTodos.map((item) => (
+          <TodoItem
+            text={item.text}
+            completed={item.completed}
+            id={item.id}
+            date={item.date}
+            onClick={toggleTodo}
+            deleteTodo={deleteTodo}
+          />
+        ))
+      )}
     </CustomList>
   );
 };
