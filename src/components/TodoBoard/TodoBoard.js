@@ -5,6 +5,7 @@ import DateInput from '../DateInput/DateInput';
 import TodoList from '../TodoList/TodoList';
 import Button from '../Button/Button';
 import Select from '../Select/Select';
+import { AddingButton, Wrapper } from './StyledComponents';
 
 const TodoBoard = ({
   setInputText,
@@ -21,13 +22,13 @@ const TodoBoard = ({
   filters,
 }) => {
   return (
-    <div>
+    <Wrapper>
       <Input onChange={searchTodos} placeholder="Search for todos..." />
       <DateInput onChange={setFilterDate} />
       <Select optionsList={sortOptions} selectedOption={sortType} onChange={setSortType} />
       <Input onChange={setInputText} />
       <DateInput onChange={setDate} />
-      <Button onClick={addTodo}>Add</Button>
+      <AddingButton onClick={addTodo}>Add</AddingButton>
       <TodoList
         todos={todos}
         toggleTodo={toggleTodo}
@@ -35,7 +36,7 @@ const TodoBoard = ({
         sortType={sortType}
         filters={filters}
       />
-    </div>
+    </Wrapper>
   );
 };
 

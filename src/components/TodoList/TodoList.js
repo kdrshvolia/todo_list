@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import TodoItem from '../TodoItem/TodoItem';
+import { CustomList } from './StyledComponents';
 
 const TodoList = ({ todos, toggleTodo, deleteTodo, sortType, filters }) => {
   const sortTodos = (todosArr, type) => {
@@ -34,8 +35,7 @@ const TodoList = ({ todos, toggleTodo, deleteTodo, sortType, filters }) => {
   const sortedTodos = sortType !== 'default' ? sortTodos(displayedTodos, sortType) : displayedTodos;
 
   return (
-    <div>
-      {console.log(sortedTodos)}
+    <CustomList>
       {sortedTodos.map((item) => (
         <TodoItem
           text={item.text}
@@ -46,7 +46,7 @@ const TodoList = ({ todos, toggleTodo, deleteTodo, sortType, filters }) => {
           deleteTodo={deleteTodo}
         />
       ))}
-    </div>
+    </CustomList>
   );
 };
 

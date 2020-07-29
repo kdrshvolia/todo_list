@@ -1,14 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { CustomButton } from './StyledComponents';
 
 const Button = ({ children, onClick }) => {
   const handleClick = () => {
     onClick();
   };
   return (
-    <button type="button" onClick={handleClick}>
+    <CustomButton type="button" onClick={handleClick}>
       {children}
-    </button>
+    </CustomButton>
   );
 };
 
