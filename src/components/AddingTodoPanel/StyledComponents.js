@@ -24,4 +24,18 @@ const ModalWrapper = styled.div`
   background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
 `;
 
-export { AddingPanel, ModalWrapper };
+const CloseCross = styled.span`
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+
+  &:hover {
+    color: black;
+    text-decoration: none;
+    transition: 0.5s;
+  }
+`;
+
+export { AddingPanel, ModalWrapper, CloseCross };
