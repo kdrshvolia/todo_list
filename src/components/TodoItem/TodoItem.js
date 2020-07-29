@@ -7,7 +7,9 @@ import {
   ItemInfo,
   ItemText,
   ItemDate,
+  InfoWrapper,
 } from './StyledComponents';
+import Checkbox from '../Checkbox/Checkbox';
 
 const TodoItem = ({ text, completed, id, date, onClick, deleteTodo }) => {
   const handleClick = () => {
@@ -19,13 +21,16 @@ const TodoItem = ({ text, completed, id, date, onClick, deleteTodo }) => {
   };
   return (
     <ItemWrapper completed={completed}>
-      <ItemInfo>
-        <ItemText onClick={handleClick} completed={completed}>{text}</ItemText>
-        <ItemDate>
-          <CustomSpan>Deadline</CustomSpan>
-          {date}
-        </ItemDate>
-      </ItemInfo>
+      <InfoWrapper>
+        <Checkbox completed={completed} onChange={handleClick} />
+        <ItemInfo>
+          <ItemText completed={completed}>{text}</ItemText>
+          <ItemDate>
+            <CustomSpan>Deadline</CustomSpan>
+            {date}
+          </ItemDate>
+        </ItemInfo>
+      </InfoWrapper>
       <DeleteButton onClick={handleDelete}>Delete</DeleteButton>
     </ItemWrapper>
   );

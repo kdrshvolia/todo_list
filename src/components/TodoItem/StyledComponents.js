@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { CustomButton } from '../Button/StyledComponents';
 
 const ItemWrapper = styled.div`
   font-family: Roboto;
@@ -10,6 +11,7 @@ const ItemWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin: 10px 0;
 
   &:hover {
     background: #e3f5f1;
@@ -18,18 +20,8 @@ const ItemWrapper = styled.div`
   }
 `;
 
-const DeleteButton = styled.button`
-  font-family: Roboto;
-  width: 80px;
-  color: #fff;
-  padding: 5px;
-  box-sizing: border-box;
+const DeleteButton = styled(CustomButton)`
   background: #ff674d;
-  border-radius: 5px;
-  cursor: pointer;
-  border: none;
-  height: 40px;
-
   &:hover {
     background: #ff573a;
     transition: 0.5s;
@@ -40,10 +32,13 @@ const ItemInfo = styled.div`
   display: flex;
   align-items: left;
   flex-direction: column;
+  margin: 0 10px;
 `;
 
 const CustomSpan = styled.span`
   color: #b3d4d4;
+  display: inline-block;
+  margin: 0 5px 0 0;
 `;
 
 const ItemText = styled.p`
@@ -60,4 +55,10 @@ const ItemDate = styled.p`
   font-size: 12px;
 `;
 
-export { ItemWrapper, DeleteButton, CustomSpan, ItemInfo, ItemText, ItemDate };
+const InfoWrapper = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+`;
+
+export { ItemWrapper, InfoWrapper, DeleteButton, CustomSpan, ItemInfo, ItemText, ItemDate };
