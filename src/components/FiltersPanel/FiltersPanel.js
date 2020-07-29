@@ -9,12 +9,12 @@ const FiltersPanel = ({ searchTodos, setFilterDate, sortOptions, sortType, setSo
   return (
     <FiltersWrapper>
       <Input onChange={searchTodos} placeholder="Search for todos..." />
-      <DateInput onChange={setFilterDate} labelText="Filter by date:" />
+      <DateInput onChange={setFilterDate} labelText="Filter by date: " />
       <Select
         optionsList={sortOptions}
         selectedOption={sortType}
         onChange={setSortType}
-        labelText="Sort by:"
+        labelText="Sort by: "
       />
     </FiltersWrapper>
   );
