@@ -4,6 +4,7 @@ import TodoList from '../TodoList/TodoList';
 import { OpenModalButton } from './StyledComponents';
 import AddingTodoPanel from '../AddingTodoPanel/AddingTodoPanel';
 import FiltersPanel from '../FiltersPanel/FiltersPanel';
+import Header from '../Header/Header';
 
 const TodoBoard = ({
   setInputText,
@@ -24,6 +25,7 @@ const TodoBoard = ({
 }) => {
   return (
     <div>
+      <Header>My tasks</Header>
       <FiltersPanel
         searchTodos={searchTodos}
         setFilterDate={setFilterDate}
