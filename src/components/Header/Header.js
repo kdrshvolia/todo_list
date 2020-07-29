@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { CustomHeader } from './StyledComponents';
 
 const Header = ({ children }) => {
-  return <h1>{children}</h1>;
+  return <CustomHeader>{children}</CustomHeader>;
 };
 
 Header.propTypes = {
