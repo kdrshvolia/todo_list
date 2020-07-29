@@ -19,10 +19,12 @@ Select.propTypes = {
   labelText: PropTypes.string,
   onChange: PropTypes.func.isRequired,
   selectedOption: PropTypes.string.isRequired,
-  optionsList: PropTypes.arrayOf.shape({
-    type: PropTypes.string.isRequired,
-    value: PropTypes.string.isRequired,
-  }).isRequired,
+  optionsList: PropTypes.arrayOf(
+    PropTypes.shape({
+      type: PropTypes.string.isRequired,
+      value: PropTypes.string.isRequired,
+    }),
+  ).isRequired,
 };
 
 export default Select;
