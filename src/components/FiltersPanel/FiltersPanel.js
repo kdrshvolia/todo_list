@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import Input from '../Input/Input';
 import DateInput from '../DateInput/DateInput';
 import Select from '../Select/Select';
-import { Wrapper } from '../TodoBoard/StyledComponents';
 import { FiltersWrapper } from './StyledComponents';
 
 const FiltersPanel = ({ searchTodos, setFilterDate, sortOptions, sortType, setSortType }) => {

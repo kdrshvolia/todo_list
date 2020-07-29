@@ -1,7 +1,7 @@
 import React from 'react';
 import Input from '../Input/Input';
 import DateInput from '../DateInput/DateInput';
-import { AddingButton, Wrapper } from '../TodoBoard/StyledComponents';
+import { AddingButton } from '../TodoBoard/StyledComponents';
 import { AddingPanel, CloseCross, ModalWrapper } from './StyledComponents';
 
 class AddingTodoPanel extends React.Component {
