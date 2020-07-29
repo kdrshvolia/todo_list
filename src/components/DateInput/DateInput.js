@@ -2,9 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const DateInput = ({ value, onChange }) => {
-  const handleChange = () => {
-    onChange();
-  };
+  const handleChange = ({ target }) => onChange(target.value);
+
   return <input type="date" value={value} onChange={handleChange} />;
 };
 

@@ -15,6 +15,7 @@ const withTodoBoard = (WrappedComponent) => {
       searchQuery: '',
       sortOptions,
       sortType: sortOptions[0].type,
+      date: new Date(),
     };
 
     setInputText = (text) => {
@@ -23,12 +24,19 @@ const withTodoBoard = (WrappedComponent) => {
       });
     };
 
+    setDate = (value) => {
+      this.setState({
+        date: value,
+      });
+    };
+
     addTodo = () => {
-      const { todos, inputText } = this.state;
+      const { todos, inputText, date } = this.state;
       const newTodo = {
         text: inputText,
         completed: false,
         id: uuidv4(),
+        date,
       };
       this.setState(
         {
@@ -85,6 +93,7 @@ const withTodoBoard = (WrappedComponent) => {
           sortOptions={this.state.sortOptions}
           sortType={this.state.sortType}
           setSortType={this.setSortType}
+          setDate={this.setDate}
         />
       );
     }

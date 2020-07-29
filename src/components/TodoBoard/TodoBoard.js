@@ -16,14 +16,15 @@ const TodoBoard = ({
   deleteTodo,
   sortOptions,
   sortType,
-  setSortType
+  setSortType,
+  setDate,
 }) => {
   return (
     <div>
       <Input onChange={searchTodos} placeholder="Search for todos..." />
       <Select optionsList={sortOptions} selectedOption={sortType} onChange={setSortType} />
       <Input onChange={setInputText} />
-      <DateInput />
+      <DateInput onChange={setDate} />
       <Button onClick={addTodo}>Add</Button>
       <TodoList
         todos={todos}
