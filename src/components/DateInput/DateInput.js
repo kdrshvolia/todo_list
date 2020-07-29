@@ -2,10 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { CustomDateInput } from './StyledComponents';
 
-const DateInput = ({ value, onChange }) => {
+const DateInput = ({ value, onChange, labelText }) => {
   const handleChange = ({ target }) => onChange(target.value);
 
-  return <CustomDateInput type="date" value={value} onChange={handleChange} />;
+  return (
+    <label>
+      {labelText}
+      <CustomDateInput type="date" value={value} onChange={handleChange} />
+    </label>
+  );
 };
 
 DateInput.propTypes = {
