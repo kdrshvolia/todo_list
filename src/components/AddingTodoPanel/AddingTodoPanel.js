@@ -9,7 +9,7 @@ const AddingTodoPanel = ({ setInputText, setDate, addTodo, isModalOpened, setMod
     <ModalWrapper isModalOpened={isModalOpened}>
       <AddingPanel>
         <CloseCross onClick={setModalOpen}>&times;</CloseCross>
-        <Input onChange={setInputText} placeholder="Add todo" />
+        <Input onChange={setInputText} placeholder="Enter a task..." />
         <DateInput onChange={setDate} />
         <AddingButton onClick={addTodo}>Add</AddingButton>
       </AddingPanel>
