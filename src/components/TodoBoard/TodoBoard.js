@@ -7,6 +7,7 @@ import Button from '../Button/Button';
 import Select from '../Select/Select';
 import { AddingButton, Wrapper } from './StyledComponents';
 import AddingTodoPanel from '../AddingTodoPanel/AddingTodoPanel';
+import FiltersPanel from '../FiltersPanel/FiltersPanel';
 
 const TodoBoard = ({
   setInputText,
@@ -21,13 +22,28 @@ const TodoBoard = ({
   setDate,
   setFilterDate,
   filters,
+  setModalOpen,
+  isModalOpened,
 }) => {
   return (
     <Wrapper>
-      <Input onChange={searchTodos} placeholder="Search for todos..." />
-      <DateInput onChange={setFilterDate} />
-      <Select optionsList={sortOptions} selectedOption={sortType} onChange={setSortType} />
-      <AddingTodoPanel addTodo={addTodo} setDate={setDate} setInputText={setInputText} />
+      <FiltersPanel
+        searchTodos={searchTodos}
+        setFilterDate={setFilterDate}
+        setSortType={setSortType}
+        sortOptions={sortOptions}
+        sortType={sortType}
+      />
+      <Button onClick={setModalOpen}>Add Task</Button>
+      {isModalOpened ? (
+        <AddingTodoPanel
+          addTodo={addTodo}
+          setDate={setDate}
+          setInputText={setInputText}
+          isModalOpened={isModalOpened}
+          setModalOpen={setModalOpen}
+        />
+      ) : null}
       <TodoList
         todos={todos}
         toggleTodo={toggleTodo}
