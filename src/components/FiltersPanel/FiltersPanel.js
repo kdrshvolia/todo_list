@@ -9,7 +9,7 @@ const FiltersPanel = ({searchTodos, setFilterDate, sortOptions, sortType, setSor
     <div>
       <Input onChange={searchTodos} placeholder="Search for todos..." />
       <DateInput onChange={setFilterDate} />
-      <Select optionsList={sortOptions} selectedOption={sortType} onChange={setSortType} />
+      <Select optionsList={sortOptions} selectedOption={sortType} onChange={setSortType} labelText="Sort by:" />
     </div>
   );
 };
