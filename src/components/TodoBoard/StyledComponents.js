@@ -14,4 +14,15 @@ const AddingButton = styled(CustomButton)`
   }
 `;
 
-export { Wrapper, AddingButton };
+const OpenModalButton = styled(CustomButton)`
+  background: #8aaaba;
+  width: 150px;
+  margin: 10px;
+
+  &:hover {
+    background: #75a5bd;
+    transition: 0.5s;
+  }
+`;
+
+export { Wrapper, AddingButton, OpenModalButton };

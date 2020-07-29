@@ -5,7 +5,7 @@ import DateInput from '../DateInput/DateInput';
 import TodoList from '../TodoList/TodoList';
 import Button from '../Button/Button';
 import Select from '../Select/Select';
-import { AddingButton, Wrapper } from './StyledComponents';
+import { AddingButton, OpenModalButton, Wrapper } from './StyledComponents';
 import AddingTodoPanel from '../AddingTodoPanel/AddingTodoPanel';
 import FiltersPanel from '../FiltersPanel/FiltersPanel';
 
@@ -34,7 +34,7 @@ const TodoBoard = ({
         sortOptions={sortOptions}
         sortType={sortType}
       />
-      <Button onClick={setModalOpen}>Add Task</Button>
+      <OpenModalButton onClick={setModalOpen}>Add Task</OpenModalButton>
       {isModalOpened ? (
         <AddingTodoPanel
           addTodo={addTodo}
