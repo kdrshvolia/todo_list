@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import Button from '../Button/Button';
 import { CustomButton } from '../Button/StyledComponents';
 
 const AddingButton = styled(CustomButton)`
