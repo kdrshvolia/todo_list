@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import TodoItem from '../TodoItem/TodoItem';
 
-const TodoList = ({ todos, toggleTodo, searchQuery, deleteTodo, sortType, filters }) => {
+const TodoList = ({ todos, toggleTodo, deleteTodo, sortType, filters }) => {
   const sortTodos = (todosArr, type) => {
     return [...todosArr].sort((a, b) => {
       const aValue = a[type].toLowerCase();

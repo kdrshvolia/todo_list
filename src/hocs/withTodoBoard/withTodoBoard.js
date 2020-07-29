@@ -99,7 +99,6 @@ const withTodoBoard = (WrappedComponent) => {
           todos={this.state.todos}
           toggleTodo={this.toggleTodo}
           searchTodos={this.searchTodos}
-          searchQuery={this.state.searchQuery}
           deleteTodo={this.deleteTodo}
           sortOptions={this.state.sortOptions}
           sortType={this.state.sortType}

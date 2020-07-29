@@ -9,7 +9,6 @@ import Select from '../Select/Select';
 const TodoBoard = ({
   setInputText,
   todos,
-  searchQuery,
   addTodo,
   toggleTodo,
   searchTodos,
@@ -32,7 +31,6 @@ const TodoBoard = ({
       <TodoList
         todos={todos}
         toggleTodo={toggleTodo}
-        searchQuery={searchQuery}
         deleteTodo={deleteTodo}
         sortType={sortType}
         filters={filters}
