@@ -1,7 +1,7 @@
 import React from 'react';
 import Button from '../Button/Button';
 
-const TodoItem = ({ text, completed, id, onClick, deleteTodo }) => {
+const TodoItem = ({ text, completed, id, date, onClick, deleteTodo }) => {
   const handleClick = () => {
     onClick(id);
   };
@@ -12,6 +12,7 @@ const TodoItem = ({ text, completed, id, onClick, deleteTodo }) => {
   return (
     <div>
       <p onClick={handleClick}>{text}</p>
+      <p>{date}</p>
       <Button onClick={handleDelete}>Delete</Button>
     </div>
   );
