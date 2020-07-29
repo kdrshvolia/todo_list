@@ -26,10 +26,10 @@ const ModalWrapper = styled.div`
 
 const CloseCross = styled.span`
   color: #aaa;
-  float: right;
   font-size: 28px;
   font-weight: bold;
   cursor: pointer;
+  align-self: flex-end;
 
   &:hover {
     color: black;
