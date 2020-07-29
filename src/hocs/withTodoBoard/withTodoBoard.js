@@ -17,6 +17,7 @@ const withTodoBoard = (WrappedComponent) => {
       sortType: sortOptions[0].type,
       date: new Date(),
       filters: { text: '', date: '' },
+      isModalOpened: false,
     };
 
     setInputText = (text) => {
@@ -42,6 +43,7 @@ const withTodoBoard = (WrappedComponent) => {
       this.setState(
         {
           todos: [...todos, newTodo],
+          isModalOpened: false,
         },
         () => localStorage.setItem('todos', JSON.stringify(this.state.todos)),
       );
@@ -91,6 +93,13 @@ const withTodoBoard = (WrappedComponent) => {
       });
     };
 
+    setModalOpen = () => {
+      const { isModalOpened } = this.state;
+      this.setState({
+        isModalOpened: !isModalOpened,
+      });
+    };
+
     render() {
       return (
         <WrappedComponent
@@ -106,6 +115,9 @@ const withTodoBoard = (WrappedComponent) => {
           setDate={this.setDate}
           setFilterDate={this.setFilterDate}
           filters={this.state.filters}
+          setModalOpen={this.setModalOpen}
+          isModalOpened={this.state.isModalOpened}
+          inputText={this.state.inputText}
         />
       );
     }
