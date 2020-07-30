@@ -31,8 +31,8 @@ const TodoList = ({ todos, toggleTodo, deleteTodo, sortType, filters }) => {
       });
     });
   };
-  const displayedTodos = multiPropsFilter(todos, filters);
-  const sortedTodos = sortType !== 'default' ? sortTodos(displayedTodos, sortType) : displayedTodos;
+  const filteredTodos = multiPropsFilter(todos, filters);
+  const sortedTodos = sortType !== 'default' ? sortTodos(filteredTodos, sortType) : filteredTodos;
 
   return (
     <CustomList>
