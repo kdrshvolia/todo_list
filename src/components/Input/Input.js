@@ -1,31 +1,24 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
 import { CustomInput } from './StyledComponents';
 
-class Input extends React.Component {
-  constructor(props) {
-    super(props);
-    this.input = React.createRef();
-  }
+const Input = ({ inputText, onChange, placeholder }) => {
+  const input = useRef(null);
+  const handleChange = ({ target }) => onChange(target.value);
 
-  handleChange = ({ target }) => this.props.onChange(target.value);
+  const handleFocus = () => input.current.focus();
 
-  handleFocus = () => this.input.current.focus();
-
-  render() {
-    const { inputText, onChange, placeholder } = this.props;
-    return (
-      <CustomInput
-        type="text"
-        value={inputText}
-        onChange={this.handleChange}
-        placeholder={placeholder}
-        ref={this.input}
-        onFocus={this.handleFocus}
-      />
-    );
-  }
-}
+  return (
+    <CustomInput
+      type="text"
+      value={inputText}
+      onChange={handleChange}
+      placeholder={placeholder}
+      ref={input}
+      onFocus={handleFocus}
+    />
+  );
+};
 
 Input.propTypes = {
   inputText: PropTypes.string.isRequired,
