@@ -5,24 +5,27 @@ import { OpenModalButton } from './StyledComponents';
 import AddingTodoPanel from '../AddingTodoPanel/AddingTodoPanel';
 import FiltersPanel from '../FiltersPanel/FiltersPanel';
 import Header from '../Header/Header';
+import UseTodoBoard from '../../customHooks/useTodoBoard';
 
-const TodoBoard = ({
-  setInputText,
-  todos,
-  addTodo,
-  toggleTodo,
-  searchTodos,
-  deleteTodo,
-  sortOptions,
-  sortType,
-  setSortType,
-  setDate,
-  setFilterDate,
-  filters,
-  setModalOpen,
-  isModalOpened,
-  inputText,
-}) => {
+const TodoBoard = () => {
+  const {
+    todos,
+    inputText,
+    setInputText,
+    date,
+    setDate,
+    addTodo,
+    deleteTodo,
+    toggleTodo,
+    searchTodos,
+    setFilterDate,
+    sortType,
+    setSortType,
+    filters,
+    sortOptions,
+    isModalOpened,
+    setIsModalOpened,
+  } = UseTodoBoard();
   return (
     <div>
       <Header>My tasks</Header>
@@ -33,14 +36,14 @@ const TodoBoard = ({
         sortOptions={sortOptions}
         sortType={sortType}
       />
-      <OpenModalButton onClick={setModalOpen}>Add Task</OpenModalButton>
+      <OpenModalButton onClick={setIsModalOpened}>Add Task</OpenModalButton>
       {isModalOpened ? (
         <AddingTodoPanel
           addTodo={addTodo}
           setDate={setDate}
           setInputText={setInputText}
           isModalOpened={isModalOpened}
-          setModalOpen={setModalOpen}
+          setModalOpen={setIsModalOpened}
           inputText={inputText}
         />
       ) : null}
