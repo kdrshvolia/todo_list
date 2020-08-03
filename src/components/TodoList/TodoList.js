@@ -44,6 +44,7 @@ const TodoList = ({ todos, toggleTodo, deleteTodo, sortType, filters }) => {
             text={item.text}
             completed={item.completed}
             id={item.id}
+            key={item.id}
             date={item.date}
             onClick={toggleTodo}
             deleteTodo={deleteTodo}
