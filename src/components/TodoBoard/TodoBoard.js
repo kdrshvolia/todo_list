@@ -23,7 +23,7 @@ const TodoBoard = () => {
     filters,
     sortOptions,
     isModalOpened,
-    setIsModalOpened,
+    setModalOpened,
     searchQuery,
   } = UseTodoBoard();
   return (
@@ -37,16 +37,16 @@ const TodoBoard = () => {
         sortType={sortType}
         searchQuery={searchQuery}
       />
-      <OpenModalButton onClick={setIsModalOpened}>Add Task</OpenModalButton>
+      <OpenModalButton onClick={setModalOpened}>Add Task</OpenModalButton>
       {isModalOpened ? (
         <AddingTodoPanel
           addTodo={addTodo}
           setDate={setDate}
           setInputText={setInputText}
           isModalOpened={isModalOpened}
-          setModalOpen={setIsModalOpened}
+          setModalOpen={setModalOpened}
           inputText={inputText}
-          setIsModalOpened={setIsModalOpened}
+          setModalOpened={setModalOpened}
         />
       ) : null}
       <TodoList

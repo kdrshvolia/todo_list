@@ -13,7 +13,7 @@ const UseTodoBoard = () => {
   ]);
   const [sortType, setSortType] = useState(sortOptions[0].type);
   const [filters, setFilters] = useState({ text: '', date: '' });
-  const [isModalOpened, setIsModalOpened] = useState(false);
+  const [isModalOpened, setModalOpened] = useState(false);
 
   const addTodo = () => {
     const newTodo = {
@@ -67,7 +67,7 @@ const UseTodoBoard = () => {
     sortOptions,
     searchQuery,
     isModalOpened,
-    setIsModalOpened,
+    setModalOpened,
   };
 };
 
