@@ -15,14 +15,32 @@ class AddingTodoPanel extends React.Component {
   };
 
   render() {
-    const { setInputText, setDate, addTodo, isModalOpened, setModalOpen, inputText } = this.props;
+    const {
+      setInputText,
+      setDate,
+      addTodo,
+      isModalOpened,
+      inputText,
+      setIsModalOpened,
+    } = this.props;
+    const handleBtnClick = () => {
+      addTodo();
+      setIsModalOpened(!isModalOpened);
+    };
     return (
       <ModalWrapper isModalOpened={isModalOpened}>
         <AddingPanel>
-          <CloseCross onClick={setModalOpen}>&times;</CloseCross>
-          <Input onChange={setInputText} placeholder="Enter a task..." ref={this.inputRef} />
+          <CloseCross onClick={() => setIsModalOpened(!isModalOpened)}>&times;</CloseCross>
+          <Input
+            onChange={setInputText}
+            placeholder="Enter a task..."
+            ref={this.inputRef}
+            inputText={inputText}
+          />
           <DateInput onChange={setDate} />
-          <AddingButton onClick={inputText ? addTodo : this.focusTextInput}>Add</AddingButton>
+          <AddingButton onClick={inputText ? handleBtnClick : this.focusTextInput}>
+            Add
+          </AddingButton>
         </AddingPanel>
       </ModalWrapper>
     );
