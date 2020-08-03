@@ -3,11 +3,8 @@ import PropTypes from 'prop-types';
 import { CustomButton } from './StyledComponents';
 
 const Button = ({ children, onClick }) => {
-  const handleClick = () => {
-    onClick();
-  };
   return (
-    <CustomButton type="button" onClick={handleClick}>
+    <CustomButton type="button" onClick={onClick}>
       {children}
     </CustomButton>
   );

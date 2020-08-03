@@ -3,9 +3,8 @@ import PropTypes from 'prop-types';
 import { CheckboxContainer, HiddenCheckbox, StyledCheckbox, Icon } from './StyledComponents';
 
 const Checkbox = ({ completed, onChange }) => {
-  const handleChange = () => onChange();
   return (
-    <CheckboxContainer onClick={handleChange}>
+    <CheckboxContainer onClick={onChange}>
       <HiddenCheckbox type="checkbox" name="checkbox" checked={completed} />
       <StyledCheckbox checked={completed}>
         <Icon viewBox="0 0 24 24">
