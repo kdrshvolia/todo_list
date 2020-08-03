@@ -47,7 +47,7 @@ const UseTodoBoard = () => {
   };
 
   const setFilterDate = (filterDate) => {
-    setFilters(filterDate);
+    setFilters({ ...filters, date: filterDate });
   };
 
   return {
