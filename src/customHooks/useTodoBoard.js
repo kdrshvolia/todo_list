@@ -25,7 +25,6 @@ const UseTodoBoard = () => {
 
     const updatedTodos = [...todos, newTodo];
     setTodos(updatedTodos);
-    setIsModalOpened(!isModalOpened);
   };
 
   useEffect(() => localStorage.setItem('todos', JSON.stringify(todos)), [todos]);
@@ -66,6 +65,7 @@ const UseTodoBoard = () => {
     setSortType,
     filters,
     sortOptions,
+    searchQuery,
     isModalOpened,
     setIsModalOpened,
   };
