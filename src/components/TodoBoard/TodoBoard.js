@@ -24,6 +24,7 @@ const TodoBoard = () => {
     sortOptions,
     isModalOpened,
     setIsModalOpened,
+    searchQuery,
   } = UseTodoBoard();
   return (
     <div>
@@ -34,6 +35,7 @@ const TodoBoard = () => {
         setSortType={setSortType}
         sortOptions={sortOptions}
         sortType={sortType}
+        searchQuery={searchQuery}
       />
       <OpenModalButton onClick={setIsModalOpened}>Add Task</OpenModalButton>
       {isModalOpened ? (
@@ -57,6 +59,5 @@ const TodoBoard = () => {
     </div>
   );
 };
-
 
 export default TodoBoard;
