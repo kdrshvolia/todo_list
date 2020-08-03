@@ -5,10 +5,17 @@ import DateInput from '../DateInput/DateInput';
 import Select from '../Select/Select';
 import { FiltersWrapper } from './StyledComponents';
 
-const FiltersPanel = ({ searchTodos, setFilterDate, sortOptions, sortType, setSortType }) => {
+const FiltersPanel = ({
+  searchTodos,
+  setFilterDate,
+  sortOptions,
+  sortType,
+  setSortType,
+  searchQuery,
+}) => {
   return (
     <FiltersWrapper>
-      <Input onChange={searchTodos} placeholder="Search for todos..." />
+      <Input onChange={searchTodos} placeholder="Search for todos..." inputText={searchQuery} />
       <DateInput onChange={setFilterDate} labelText="Filter by date: " />
       <Select
         optionsList={sortOptions}
@@ -28,6 +35,7 @@ FiltersPanel.propTypes = {
     PropTypes.shape({ type: PropTypes.string.isRequired, value: PropTypes.string.isRequired }),
   ).isRequired,
   searchTodos: PropTypes.func.isRequired,
+  searchQuery: PropTypes.string.isRequired,
 };
 
 export default FiltersPanel;
