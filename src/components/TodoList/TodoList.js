@@ -18,20 +18,19 @@ const TodoList = ({ todos, toggleTodo, deleteTodo, sortType, filters }) => {
     });
   };
 
-  const multiPropsFilter = (todosArr, filters) => {
-    const filterKeys = Object.keys(filters);
-    return todosArr.filter((todo) => {
-      return filterKeys.every((key) => {
-        if (!filters[key].length) return true;
-        // Loops again if product[key] is an array (for material attribute).
-        if (Array.isArray(todo[key])) {
-          return todo[key].some((keyEle) => filters[key].includes(keyEle));
-        }
-        return todo[key].includes(filters[key]);
-      });
+  const filterTodos = (todos, filters) => {
+    const filterTypes = Object.keys(filters);
+    let result = [];
+    filterTypes.forEach((type) => {
+      result =
+        result.length === 0
+          ? todos.filter((todo) => todo[type].includes(filters[type]))
+          : result.filter((todo) => todo[type].includes(filters[type]));
     });
+
+    return result;
   };
-  const filteredTodos = multiPropsFilter(todos, filters);
+  const filteredTodos = filterTodos(todos, filters);
   const sortedTodos = sortType !== 'default' ? sortTodos(filteredTodos, sortType) : filteredTodos;
 
   return (
