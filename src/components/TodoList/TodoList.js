@@ -31,7 +31,8 @@ const TodoList = ({ todos, toggleTodo, deleteTodo, sortType, filters }) => {
     return result;
   };
   const filteredTodos = filterTodos(todos, filters);
-  const sortedTodos = sortType !== 'default' ? sortTodos(filteredTodos, sortType) : filteredTodos;
+  const defaultSort = 'default';
+  const sortedTodos = sortType !== defaultSort ? sortTodos(filteredTodos, sortType) : filteredTodos;
 
   return (
     <CustomList>
