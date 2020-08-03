@@ -1,4 +1,5 @@
 import React, { useRef } from 'react';
+import PropTypes from 'prop-types';
 import Input from '../Input/Input';
 import DateInput from '../DateInput/DateInput';
 import { AddingButton } from '../TodoBoard/StyledComponents';
@@ -10,7 +11,7 @@ const AddingTodoPanel = ({
   addTodo,
   isModalOpened,
   inputText,
-  setIsModalOpened,
+  setModalOpened,
 }) => {
   const input = useRef(null);
   const focusTextInput = () => {
@@ -19,12 +20,12 @@ const AddingTodoPanel = ({
 
   const handleBtnClick = () => {
     addTodo();
-    setIsModalOpened(!isModalOpened);
+    setModalOpened(!isModalOpened);
   };
   return (
     <ModalWrapper isModalOpened={isModalOpened}>
       <AddingPanel>
-        <CloseCross onClick={() => setIsModalOpened(!isModalOpened)}>&times;</CloseCross>
+        <CloseCross onClick={() => setModalOpened(!isModalOpened)}>&times;</CloseCross>
         <Input
           onChange={setInputText}
           placeholder="Enter a task..."
@@ -36,6 +37,15 @@ const AddingTodoPanel = ({
       </AddingPanel>
     </ModalWrapper>
   );
+};
+
+AddingTodoPanel.propTypes = {
+  setInputText: PropTypes.string.isRequired,
+  setDate: PropTypes.func.isRequired,
+  addTodo: PropTypes.func.isRequired,
+  isModalOpened: PropTypes.bool.isRequired,
+  inputText: PropTypes.string.isRequired,
+  setModalOpened: PropTypes.func.isRequired,
 };
 
 export default AddingTodoPanel;
