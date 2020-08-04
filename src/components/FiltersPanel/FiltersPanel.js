@@ -6,13 +6,14 @@ import DateInput from '../DateInput/DateInput';
 import Select from '../Select/Select';
 import { FiltersWrapper } from './StyledComponents';
 import { setFilterByText, setFilterByDate } from '../../redux/actions/filtersActions';
+import { setSortingType } from '../../redux/actions/sortActions';
 
 const FiltersPanel = ({
   searchTodos,
   setFilterDate,
   sortOptions,
   sortType,
-  setSortType,
+  setSortingType,
   searchQuery,
   filters,
   setFilterByText,
@@ -29,7 +30,7 @@ const FiltersPanel = ({
       <Select
         optionsList={sortOptions}
         selectedOption={sortType}
-        onChange={setSortType}
+        onChange={setSortingType}
         labelText="Sort by: "
       />
     </FiltersWrapper>
@@ -39,12 +40,15 @@ const FiltersPanel = ({
 const mapStateToProps = (state) => {
   return {
     filters: state.filters,
+    sortOptions: state.sortOptions,
+    sortType: state.sort,
   };
 };
 
 const mapDispatchToProps = {
   setFilterByText,
   setFilterByDate,
+  setSortingType,
 };
 
 FiltersPanel.propTypes = {

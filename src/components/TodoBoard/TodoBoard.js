@@ -49,7 +49,7 @@ const TodoBoard = () => {
           date={date}
         />
       ) : null}
-      <TodoList sortType={sortType} filters={filters} />
+      <TodoList />
     </div>
   );
 };

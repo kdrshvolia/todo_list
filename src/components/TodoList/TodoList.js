@@ -61,6 +61,7 @@ const mapStateToProps = (state) => {
   return {
     todos: state.todos,
     filters: state.filters,
+    sortType: state.sort,
   };
 };
 
