@@ -8,7 +8,9 @@ const Select = ({ optionsList, selectedOption, onChange, labelText }) => {
       {labelText}
       <select value={selectedOption} name="sort" onChange={handleChange}>
         {optionsList.map((option) => (
-          <option value={option.type}>{option.value}</option>
+          <option value={option.type} key={option.value}>
+            {option.value}
+          </option>
         ))}
       </select>
     </label>
