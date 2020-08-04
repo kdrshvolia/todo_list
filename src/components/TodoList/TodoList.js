@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import TodoItem from '../TodoItem/TodoItem';
 import { CustomList } from './StyledComponents';
+import { deleteTodo, toggleTodo } from '../../redux/actions/todosActions';
 
 const TodoList = ({ todos, toggleTodo, deleteTodo, sortType, filters }) => {
   const sortTodos = (todosArr, type) => {
@@ -55,6 +57,17 @@ const TodoList = ({ todos, toggleTodo, deleteTodo, sortType, filters }) => {
   );
 };
 
+const mapStateToProps = (state) => {
+  return {
+    todos: state.todos,
+  };
+};
+
+const mapDispatchToProps = {
+  deleteTodo,
+  toggleTodo,
+};
+
 TodoList.propTypes = {
   todos: PropTypes.arrayOf(
     PropTypes.shape({
@@ -72,4 +85,4 @@ TodoList.propTypes = {
   }).isRequired,
 };
 
-export default TodoList;
+export default connect(mapStateToProps, mapDispatchToProps)(TodoList);

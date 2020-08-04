@@ -49,13 +49,7 @@ const TodoBoard = () => {
           setModalOpened={setModalOpened}
         />
       ) : null}
-      <TodoList
-        todos={todos}
-        toggleTodo={toggleTodo}
-        deleteTodo={deleteTodo}
-        sortType={sortType}
-        filters={filters}
-      />
+      <TodoList sortType={sortType} filters={filters} />
     </div>
   );
 };
