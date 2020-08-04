@@ -53,6 +53,7 @@ AddingTodoPanel.propTypes = {
   isModalOpened: PropTypes.bool.isRequired,
   inputText: PropTypes.string.isRequired,
   setModalOpened: PropTypes.func.isRequired,
+  date: PropTypes.string.isRequired,
 };
 
 export default connect(null, mapDispatchToProps)(AddingTodoPanel);

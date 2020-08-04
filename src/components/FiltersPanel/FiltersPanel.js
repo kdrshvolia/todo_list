@@ -9,12 +9,9 @@ import { setFilterByText, setFilterByDate } from '../../redux/actions/filtersAct
 import { setSortingType } from '../../redux/actions/sortActions';
 
 const FiltersPanel = ({
-  searchTodos,
-  setFilterDate,
   sortOptions,
   sortType,
   setSortingType,
-  searchQuery,
   filters,
   setFilterByText,
   setFilterByDate,
