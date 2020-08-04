@@ -56,6 +56,10 @@ FiltersPanel.propTypes = {
     PropTypes.shape({ type: PropTypes.string.isRequired, value: PropTypes.string.isRequired }),
   ).isRequired,
   setFilterByText: PropTypes.func.isRequired,
+  filters: PropTypes.shape({
+    text: PropTypes.string.isRequired,
+    date: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(FiltersPanel);
