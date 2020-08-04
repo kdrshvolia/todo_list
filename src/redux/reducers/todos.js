@@ -1,7 +1,7 @@
-// import { deleteTodo } from '../actions/todosActions';
+import { loadState } from '../../localStorage';
 import { ADD_TODO, DELETE_TODO, TOGGLE_TODO } from '../actions/actionTypes';
 
-const persistedState = JSON.parse(localStorage.getItem('todos')) || [];
+const persistedState = loadState('todos');
 
 const todos = (state = persistedState, action) => {
   switch (action.type) {
