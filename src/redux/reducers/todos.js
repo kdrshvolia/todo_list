@@ -1,5 +1,5 @@
 // import { deleteTodo } from '../actions/todosActions';
-import { DELETE_TODO, TOGGLE_TODO } from '../actions/actionTypes';
+import { ADD_TODO, DELETE_TODO, TOGGLE_TODO } from '../actions/actionTypes';
 
 const persistedState = JSON.parse(localStorage.getItem('todos')) || [];
 
@@ -12,6 +12,8 @@ const todos = (state = persistedState, action) => {
       return state.map((todo) =>
         todo.id === action.payload ? { ...todo, completed: !todo.completed } : todo,
       );
+    case ADD_TODO:
+      return [...state, action.payload];
     default:
       return state;
   }

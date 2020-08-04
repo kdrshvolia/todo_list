@@ -40,13 +40,13 @@ const TodoBoard = () => {
       <OpenModalButton onClick={setModalOpened}>Add Task</OpenModalButton>
       {isModalOpened ? (
         <AddingTodoPanel
-          addTodo={addTodo}
           setDate={setDate}
           setInputText={setInputText}
           isModalOpened={isModalOpened}
           setModalOpen={setModalOpened}
           inputText={inputText}
           setModalOpened={setModalOpened}
+          date={date}
         />
       ) : null}
       <TodoList sortType={sortType} filters={filters} />
