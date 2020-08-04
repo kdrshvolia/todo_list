@@ -66,10 +66,12 @@ TodoList.propTypes = {
   toggleTodo: PropTypes.func.isRequired,
   deleteTodo: PropTypes.func.isRequired,
   sortType: PropTypes.string.isRequired,
-  filters: PropTypes.objectOf({
-    text: PropTypes.string.isRequired,
-    date: PropTypes.string.isRequired,
-  }).isRequired,
+  filters: PropTypes.objectOf(
+    PropTypes.shape({
+      text: PropTypes.string.isRequired,
+      date: PropTypes.string.isRequired,
+    }),
+  ).isRequired,
 };
 
 export default TodoList;
