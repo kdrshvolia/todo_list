@@ -60,6 +60,7 @@ const TodoList = ({ todos, toggleTodo, deleteTodo, sortType, filters }) => {
 const mapStateToProps = (state) => {
   return {
     todos: state.todos,
+    filters: state.filters,
   };
 };
 

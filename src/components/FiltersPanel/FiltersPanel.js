@@ -1,9 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import Input from '../Input/Input';
 import DateInput from '../DateInput/DateInput';
 import Select from '../Select/Select';
 import { FiltersWrapper } from './StyledComponents';
+import { setFilterByText } from '../../redux/actions/filtersActions';
 
 const FiltersPanel = ({
   searchTodos,
@@ -12,10 +14,16 @@ const FiltersPanel = ({
   sortType,
   setSortType,
   searchQuery,
+  filters,
+  setFilterByText,
 }) => {
   return (
     <FiltersWrapper>
-      <Input onChange={searchTodos} placeholder="Search for todos..." inputText={searchQuery} />
+      <Input
+        onChange={setFilterByText}
+        placeholder="Search for todos..."
+        inputText={filters.text}
+      />
       <DateInput onChange={setFilterDate} labelText="Filter by date: " />
       <Select
         optionsList={sortOptions}
@@ -25,6 +33,16 @@ const FiltersPanel = ({
       />
     </FiltersWrapper>
   );
+};
+
+const mapStateToProps = (state) => {
+  return {
+    filters: state.filters,
+  };
+};
+
+const mapDispatchToProps = {
+  setFilterByText,
 };
 
 FiltersPanel.propTypes = {
@@ -38,4 +56,4 @@ FiltersPanel.propTypes = {
   searchQuery: PropTypes.string.isRequired,
 };
 
-export default FiltersPanel;
+export default connect(mapStateToProps, mapDispatchToProps)(FiltersPanel);
