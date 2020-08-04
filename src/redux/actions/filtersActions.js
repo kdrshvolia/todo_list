@@ -1,4 +1,4 @@
-import { SET_FILTER_BY_TEXT } from './actionTypes';
+import { SET_FILTER_BY_DATE, SET_FILTER_BY_TEXT } from './actionTypes';
 
 const setFilterByText = (text) => {
   return {
@@ -7,4 +7,11 @@ const setFilterByText = (text) => {
   };
 };
 
-export { setFilterByText };
+const setFilterByDate = (date) => {
+  return {
+    type: SET_FILTER_BY_DATE,
+    payload: date,
+  };
+};
+
+export { setFilterByText, setFilterByDate };

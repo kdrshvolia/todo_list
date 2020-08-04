@@ -5,7 +5,7 @@ import Input from '../Input/Input';
 import DateInput from '../DateInput/DateInput';
 import Select from '../Select/Select';
 import { FiltersWrapper } from './StyledComponents';
-import { setFilterByText } from '../../redux/actions/filtersActions';
+import { setFilterByText, setFilterByDate } from '../../redux/actions/filtersActions';
 
 const FiltersPanel = ({
   searchTodos,
@@ -16,6 +16,7 @@ const FiltersPanel = ({
   searchQuery,
   filters,
   setFilterByText,
+  setFilterByDate,
 }) => {
   return (
     <FiltersWrapper>
@@ -24,7 +25,7 @@ const FiltersPanel = ({
         placeholder="Search for todos..."
         inputText={filters.text}
       />
-      <DateInput onChange={setFilterDate} labelText="Filter by date: " />
+      <DateInput onChange={setFilterByDate} labelText="Filter by date: " />
       <Select
         optionsList={sortOptions}
         selectedOption={sortType}
@@ -43,6 +44,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = {
   setFilterByText,
+  setFilterByDate,
 };
 
 FiltersPanel.propTypes = {
