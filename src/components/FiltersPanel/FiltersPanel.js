@@ -49,14 +49,13 @@ const mapDispatchToProps = {
 };
 
 FiltersPanel.propTypes = {
-  setSortType: PropTypes.func.isRequired,
-  setFilterDate: PropTypes.func.isRequired,
+  setSortingType: PropTypes.func.isRequired,
+  setFilterByDate: PropTypes.func.isRequired,
   sortType: PropTypes.string.isRequired,
   sortOptions: PropTypes.arrayOf(
     PropTypes.shape({ type: PropTypes.string.isRequired, value: PropTypes.string.isRequired }),
   ).isRequired,
-  searchTodos: PropTypes.func.isRequired,
-  searchQuery: PropTypes.string.isRequired,
+  setFilterByText: PropTypes.func.isRequired,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(FiltersPanel);
