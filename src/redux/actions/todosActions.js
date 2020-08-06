@@ -4,7 +4,7 @@ import { ADD_TODO, DELETE_TODO, TOGGLE_TODO } from './actionTypes';
 const addTodo = (text, date) => {
   return {
     type: ADD_TODO,
-    payload: { text, date, completed: false, id: uuidv4() },
+    payload: { text, date, isCompleted: false, id: uuidv4() },
   };
 };
 

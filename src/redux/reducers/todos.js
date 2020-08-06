@@ -10,7 +10,7 @@ const todos = (state = persistedState, action) => {
 
     case TOGGLE_TODO:
       return state.map((todo) =>
-        todo.id === action.payload ? { ...todo, completed: !todo.completed } : todo,
+        todo.id === action.payload ? { ...todo, isCompleted: !todo.isCompleted } : todo,
       );
     case ADD_TODO:
       return [...state, action.payload];

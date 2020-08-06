@@ -44,7 +44,7 @@ const TodoList = ({ todos, toggleTodo, deleteTodo, sortType, filters }) => {
         sortedTodos.map((item) => (
           <TodoItem
             text={item.text}
-            completed={item.completed}
+            completed={item.isCompleted}
             id={item.id}
             key={item.id}
             date={item.date}
