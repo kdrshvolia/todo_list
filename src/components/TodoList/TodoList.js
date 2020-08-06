@@ -23,9 +23,9 @@ const TodoList = ({ todos, toggleTodo, deleteTodo, sortType, filters }) => {
   const filterTodos = (todos, filters) => {
     const filterTypes = Object.keys(filters);
     let result = [];
-    filterTypes.forEach((type) => {
+    filterTypes.forEach((type, index) => {
       result =
-        result.length === 0
+        index === 0
           ? todos.filter((todo) => todo[type].includes(filters[type]))
           : result.filter((todo) => todo[type].includes(filters[type]));
     });
