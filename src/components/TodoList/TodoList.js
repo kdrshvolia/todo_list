@@ -20,18 +20,11 @@ const TodoList = ({ todos, toggleTodo, deleteTodo, sortType, filters }) => {
     });
   };
 
-  const filterTodos = (todos, filters) => {
-    const filterTypes = Object.keys(filters);
-    let result = [];
-    filterTypes.forEach((type, index) => {
-      result =
-        index === 0
-          ? todos.filter((todo) => todo[type].includes(filters[type]))
-          : result.filter((todo) => todo[type].includes(filters[type]));
-    });
+  const filterTodos = (todos, filters) =>
+    todos.filter((item) =>
+      Object.keys(filters).every((type) => item[type].includes(filters[type])),
+    );
 
-    return result;
-  };
   const filteredTodos = filterTodos(todos, filters);
   const defaultSort = 'default';
   const sortedTodos = sortType !== defaultSort ? sortTodos(filteredTodos, sortType) : filteredTodos;
