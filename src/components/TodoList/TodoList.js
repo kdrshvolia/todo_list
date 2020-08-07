@@ -6,7 +6,7 @@ import TodoItem from '../TodoItem/TodoItem';
 import { CustomList } from './StyledComponents';
 import { deleteTodo, toggleTodo } from '../../redux/actions/todosActions';
 
-const TodoList = ({ todos, toggleTodo, deleteTodo, sortType, filters }) => {
+const TodoList = ({ toggleTodo, deleteTodo }) => {
   const sortTodos = (todosArr, type) => {
     return [...todosArr].sort((a, b) => {
       const aValue = a[type].toLowerCase();
@@ -57,14 +57,6 @@ const TodoList = ({ todos, toggleTodo, deleteTodo, sortType, filters }) => {
   );
 };
 
-const mapStateToProps = (state) => {
-  return {
-    todos: state.todos,
-    filters: state.filters,
-    sortType: state.sort,
-  };
-};
-
 const mapDispatchToProps = {
   deleteTodo,
   toggleTodo,
@@ -87,4 +79,4 @@ TodoList.propTypes = {
   }).isRequired,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(TodoList);
+export default connect(null, mapDispatchToProps)(TodoList);
