@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
+import { connect, useSelector } from 'react-redux';
+import { createSelector } from 'reselect';
 import TodoItem from '../TodoItem/TodoItem';
 import { CustomList } from './StyledComponents';
 import { deleteTodo, toggleTodo } from '../../redux/actions/todosActions';
@@ -20,21 +21,27 @@ const TodoList = ({ todos, toggleTodo, deleteTodo, sortType, filters }) => {
     });
   };
 
-  const filterTodos = (todos, filters) =>
-    todos.filter((item) =>
-      Object.keys(filters).every((type) => item[type].includes(filters[type])),
-    );
+  const selectDisplayedTodos = createSelector(
+    (state) => state.todos,
+    (state) => state.filters,
+    (state) => state.sort,
+    (todos, filters, sortType) => {
+      const filteredTodos = todos.filter((item) =>
+        Object.keys(filters).every((type) => item[type].includes(filters[type])),
+      );
+      const defaultSort = 'default';
+      return sortType === defaultSort ? filteredTodos : sortTodos(filteredTodos, sortType);
+    },
+  );
 
-  const filteredTodos = filterTodos(todos, filters);
-  const defaultSort = 'default';
-  const sortedTodos = sortType !== defaultSort ? sortTodos(filteredTodos, sortType) : filteredTodos;
+  const displayedTodos = useSelector(selectDisplayedTodos);
 
   return (
     <CustomList>
-      {sortedTodos.length === 0 ? (
+      {displayedTodos.length === 0 ? (
         <div>No added tasks yet :(</div>
       ) : (
-        sortedTodos.map((item) => (
+        displayedTodos.map((item) => (
           <TodoItem
             text={item.text}
             completed={item.isCompleted}
